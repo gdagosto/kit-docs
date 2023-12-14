@@ -33,6 +33,6 @@ jobs:
           token: ${{ github.token }}
           branch: standalone
 
-      - run: pnpm run release ${{ steps.semver.outputs.nextStrict }}
+      - run: pnpm run release-ci ${{ steps.semver.outputs.nextStrict }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -106,7 +106,7 @@ async function main() {
     '@iconify-json/ri': '^1.0.0',
     '@sveltejs/adapter-auto': '^1.0.0',
     '@sveltejs/kit': '^1.0.0',
-    '@svelteness/kit-docs': `^${version}`,
+    '@gdagosto/kit-docs': `^${version}`,
     clsx: '^1.0.0',
     'unplugin-icons': '^0.14.0',
     shiki: '^0.12.0',
@@ -146,10 +146,10 @@ async function main() {
   const appDTSPath = path.resolve(targetDir, 'src/app.d.ts');
   if (fs.existsSync(appDTSPath)) {
     const appDTSContent = fs.readFileSync(appDTSPath).toString();
-    if (!/@svelteness\/kit-docs\/globals/.test(appDTSContent)) {
+    if (!/@gdagosto\/kit-docs\/globals/.test(appDTSContent)) {
       fs.writeFileSync(
         appDTSPath,
-        '/// <reference types="@svelteness/kit-docs/globals" />\n\n' + appDTSContent,
+        '/// <reference types="@gdagosto/kit-docs/globals" />\n\n' + appDTSContent,
       );
     }
   }
@@ -159,7 +159,7 @@ async function main() {
 
     const colorSchemeScript = `
     <script>
-      const key = 'svelteness::color-scheme';
+      const key = 'gdagosto::color-scheme';
       const scheme = localStorage[key];
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (scheme === 'dark' || (scheme !== 'light' && prefersDark)) {
@@ -172,7 +172,7 @@ async function main() {
 
     const fileContent = fs.readFileSync(appHTMLPath).toString();
 
-    if (!/svelteness::color-scheme/.test(fileContent)) {
+    if (!/gdagosto::color-scheme/.test(fileContent)) {
       fs.writeFileSync(
         appHTMLPath,
         fileContent.replace(/%sveltekit.head%/, `${colorSchemeScript}\n    %sveltekit.head%`),

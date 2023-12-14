@@ -75,7 +75,7 @@
     </div>
 
     <div class="socials" slot="navbar-right-alt">
-      <SocialLink type="gitHub" href="https://github.com/svelteness/kit-docs" />
+      <SocialLink type="gitHub" href="https://github.com/gdagosto/kit-docs" />
     </div>
 
     <slot />
@@ -83,7 +83,7 @@
     <div slot="main-bottom" class="footer">
       <!-- svelte-ignore security-anchor-rel-noreferrer -->
       <a
-        href="https://vercel.com/?utm_source=svelteness&utm_campaign=oss"
+        href="https://vercel.com/?utm_source=gdagosto&utm_campaign=oss"
         rel="external"
         target="_blank"
       >

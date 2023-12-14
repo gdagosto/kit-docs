@@ -39,7 +39,7 @@ npm i @docsearch/css @docsearch/js @algolia/client-search react react-dom @types
 
 ```js title=routes/docs/__layout.svelte|copy
 import '@docsearch/css'; // Must come first.
-import '@svelteness/kit-docs/client/styles/docsearch.css';
+import '@gdagosto/kit-docs/client/styles/docsearch.css';
 ```
 
 !!!
@@ -47,7 +47,7 @@ import '@svelteness/kit-docs/client/styles/docsearch.css';
 !!!step title="Import Component"|(slot=description)=Import the `Algolia` component into your layout file.
 
 ```js title=routes/docs/__layout.svelte|copy
-import { Algolia } from '@svelteness/kit-docs/client/algolia';
+import { Algolia } from '@gdagosto/kit-docs/client/algolia';
 ```
 
 !!!

@@ -11,7 +11,7 @@ export function isLocalEnv() {
     const pkgPath = resolve(process.cwd(), 'package.json');
     if (pkgPath.endsWith('kit-docs/package.json')) {
       const pkg = readFileSync(pkgPath).toString();
-      if (/"name": "@svelteness\/kit-docs"/.test(pkg)) {
+      if (/"name": "@gdagosto\/kit-docs"/.test(pkg)) {
         isLocal = true;
         return true;
       }

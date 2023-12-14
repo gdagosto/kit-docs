@@ -76,7 +76,7 @@
     "@sveltejs/adapter-static": "^2.0.3",
     "@sveltejs/kit": "^1.25.0",
     "@sveltejs/package": "^2.2.2",
-    "@svelteness/kit-docs": "link:",
+    "@gdagosto/kit-docs": "link:",
     "@tailwindcss/typography": "^0.5.10",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",

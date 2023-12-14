@@ -14,11 +14,11 @@ You can set all the variables yourself like so:
 1. First, replace the `vars.css` import from your docs layout file with your own CSS file:
 
 ```diff title=routes/docs/__layout.svelte
--   import '@svelteness/kit-docs/client/styles/vars.css';
+-   import '@gdagosto/kit-docs/client/styles/vars.css';
 +   import '$lib/styles/kit-docs.css';
 ```
 
-2. Finally, copy the [CSS variables](https://github.com/svelteness/kit-docs/blob/main/packages/kit-docs/src/lib/styles/vars.css)
+2. Finally, copy the [CSS variables](https://github.com/gdagosto/kit-docs/blob/main/packages/kit-docs/src/lib/styles/vars.css)
    from GitHub and paste them in your `kit-docs.css` file.
 
 ## Fonts
@@ -32,7 +32,7 @@ your own like so:
 rm -rf src/fonts
 ```
 
-2. Finally, load your own fonts (see our [fonts file](https://github.com/svelteness/kit-docs/blob/main/packages/kit-docs/src/lib/styles/fonts.css)
+2. Finally, load your own fonts (see our [fonts file](https://github.com/gdagosto/kit-docs/blob/main/packages/kit-docs/src/lib/styles/fonts.css)
    for reference) and set the font family CSS variables like so:
 
 ```html
@@ -81,7 +81,7 @@ const i18n = {
 <KitDocsLayout {i18n} />
 ```
 
-You can find all our default [translations on GitHub](https://github.com/svelteness/kit-docs/blob/main/packages/kit-docs/src/lib/components/layout/contexts.ts#L253).
+You can find all our default [translations on GitHub](https://github.com/gdagosto/kit-docs/blob/main/packages/kit-docs/src/lib/components/layout/contexts.ts#L253).
 
 ## Navbar
 
@@ -124,7 +124,7 @@ positioned correctly when loading URL's with a hash:
 
 ```svelte copyHighlight{2-5}
 <script>
-  /** @type {import('@svelteness/kit-docs').NavbarConfig} */
+  /** @type {import('@gdagosto/kit-docs').NavbarConfig} */
   const navbar = {
     links: [{ title: 'Documentation', slug: '/docs', match: /\/docs/ }],
   };
@@ -139,7 +139,7 @@ positioned correctly when loading URL's with a hash:
 
 ```svelte copy
 <script>
-  import { getNavbarContext } from '@svelteness/kit-docs';
+  import { getNavbarContext } from '@gdagosto/kit-docs';
 
   const navbar = getNavbarContext();
 
@@ -162,7 +162,7 @@ positioned correctly when loading URL's with a hash:
 
 ```svelte copyHighlight{2-12}
 <script>
-  /** @type {import('@svelteness/kit-docs').SidebarConfig} */
+  /** @type {import('@gdagosto/kit-docs').SidebarConfig} */
   const sidebar = {
     links: {
       'First Category': [
@@ -186,7 +186,7 @@ You can also create a sidebar using shorthand like so:
 
 ```svelte copy
 <script>
-  /** @type {import('@svelteness/kit-docs').SidebarConfig} */
+  /** @type {import('@gdagosto/kit-docs').SidebarConfig} */
   const sidebar = {
     baseUrl: '/docs',
     links: {
@@ -220,7 +220,7 @@ See [unplugin-icons](https://github.com/antfu/unplugin-icons) for how to load an
 <script>
   import ExperimentalIcon from '~icons/ri/test-tube-fill';
 
-  /** @type {import('@svelteness/kit-docs').SidebarConfig} */
+  /** @type {import('@gdagosto/kit-docs').SidebarConfig} */
   const sidebar = {
     links: {
       'First Category': [{
@@ -237,7 +237,7 @@ See [unplugin-icons](https://github.com/antfu/unplugin-icons) for how to load an
 
 ```svelte copy
 <script>
-  import { getSidebarContext } from '@svelteness/kit-docs';
+  import { getSidebarContext } from '@gdagosto/kit-docs';
 
   // All context values are stores (use `$` prefix).
   const {

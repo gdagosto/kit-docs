@@ -18,7 +18,7 @@ import {
   parseMarkdownToSvelte,
 } from './parser';
 
-const PLUGIN_NAME = '@svelteness/markdown' as const;
+const PLUGIN_NAME = '@gdagosto/markdown' as const;
 
 const __cwd = process.cwd();
 // @ts-ignore

@@ -154,7 +154,7 @@ kitDocsPlugin({
 ## Default Components
 
 There's a few components we provide out of the box such as `CodeFence`, `CodeInline`, `Link` and
-others. You can find all of our [default components](https://github.com/svelteness/kit-docs/tree/main/packages/kit-docs/src/lib/kit-docs)
+others. You can find all of our [default components](https://github.com/gdagosto/kit-docs/tree/main/packages/kit-docs/src/lib/kit-docs)
 on GitHub.
 
 ### Overriding

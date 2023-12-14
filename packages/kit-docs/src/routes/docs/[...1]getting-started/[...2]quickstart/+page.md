@@ -12,7 +12,7 @@ The following command will scaffold a new SvelteKit application and add all the 
 for you.
 
 ```bash copy
-npm init @svelteness/kit-docs mydocs
+npm init @gdagosto/kit-docs mydocs
 ```
 
 <script>
@@ -26,7 +26,7 @@ Once your application is ready you can skip over to the [next steps](#home-page)
 ## Manual Installation
 
 :::admonition type="tip"
-See our [demo](https://github.com/svelteness/kit-docs/tree/main/demo) directory on GitHub if
+See our [demo](https://github.com/gdagosto/kit-docs/tree/main/demo) directory on GitHub if
 you'd like a reference to use as you follow along with the steps below.
 :::
 
@@ -45,7 +45,7 @@ npm i
 !!!step title="Install Dependencies"|description="Install KitDocs and all dependencies via NPM."
 
 ```bash copy
-npm i @svelteness/kit-docs @iconify-json/ri unplugin-icons clsx shiki -D
+npm i @gdagosto/kit-docs @iconify-json/ri unplugin-icons clsx shiki -D
 ```
 
 !!!
@@ -74,7 +74,7 @@ export default config;
 ```js title=vite.config.js|copy
 import { sveltekit } from '@sveltejs/kit/vite';
 import icons from 'unplugin-icons/vite';
-import kitDocs from '@svelteness/kit-docs/node';
+import kitDocs from '@gdagosto/kit-docs/node';
 
 /** @type {import('vite').UserConfig} */
 const config = {
@@ -90,7 +90,7 @@ export default config;
 
 ```ts title=src/app.d.ts|copyHighlight{2}
 /// <reference types="@sveltejs/kit" />
-/// <reference types="@svelteness/kit-docs/globals" />
+/// <reference types="@gdagosto/kit-docs/globals" />
 // ...
 ```
 
@@ -109,13 +109,13 @@ src
 ```
 
 ```js title=routes/kit-docs/[slug].meta/+server.js|copy
-import { createMetaRequestHandler } from '@svelteness/kit-docs/node';
+import { createMetaRequestHandler } from '@gdagosto/kit-docs/node';
 
 export const GET = createMetaRequestHandler();
 ```
 
 ```js title=routes/kit-docs/[dir].sidebar/+server.js|copy
-import { createSidebarRequestHandler } from '@svelteness/kit-docs/node';
+import { createSidebarRequestHandler } from '@gdagosto/kit-docs/node';
 
 export const GET = createSidebarRequestHandler();
 ```
@@ -135,12 +135,12 @@ src
 <script>
   import { page } from '$app/stores';
 
-  import { KitDocs, createKitDocsLoader, createSidebarContext } from '@svelteness/kit-docs';
+  import { KitDocs, createKitDocsLoader, createSidebarContext } from '@gdagosto/kit-docs';
 
-  /** @type {import('@svelteness/kit-docs').MarkdownMeta | null} */
+  /** @type {import('@gdagosto/kit-docs').MarkdownMeta | null} */
   export let meta = null;
 
-  /** @type {import('@svelteness/kit-docs').ResolvedSidebarConfig | null} */
+  /** @type {import('@gdagosto/kit-docs').ResolvedSidebarConfig | null} */
   export let sidebar = null;
 
   const { activeCategory } = createSidebarContext(sidebar);
@@ -167,7 +167,7 @@ src
 ```
 
 ```js title=routes/+layout.js|copy
-import { createKitDocsLoader } from '@svelteness/kit-docs';
+import { createKitDocsLoader } from '@gdagosto/kit-docs';
 
 export const prerender = true;
 
@@ -258,15 +258,15 @@ First, add the default markdown components to your content config:
 module.exports = {
   content: [
     './src/**/*.{html,svelte}',
-    './node_modules/@svelteness/kit-docs/client/kit-docs/**/*.svelte',
+    './node_modules/@gdagosto/kit-docs/client/kit-docs/**/*.svelte',
   ],
 };
 ```
 
-Finally, copy and adjust our [theme](https://github.com/svelteness/kit-docs/blob/main/packages/kit-docs/tailwind.config.cjs#L14-L51)
-and [variants plugin](https://github.com/svelteness/kit-docs/blob/main/packages/kit-docs/tailwind.config.cjs#L64-L77)
+Finally, copy and adjust our [theme](https://github.com/gdagosto/kit-docs/blob/main/packages/kit-docs/tailwind.config.cjs#L14-L51)
+and [variants plugin](https://github.com/gdagosto/kit-docs/blob/main/packages/kit-docs/tailwind.config.cjs#L64-L77)
 settings into your `tailwind.config.cjs` file. Refer to our
-[CSS variables file](https://github.com/svelteness/kit-docs/blob/main/packages/kit-docs/src/lib/styles/vars.css)
+[CSS variables file](https://github.com/gdagosto/kit-docs/blob/main/packages/kit-docs/src/lib/styles/vars.css)
 to get any values.
 
 ## Meta Endpoint
@@ -289,7 +289,7 @@ You can override the default slug resolver which handles mapping a slug to a mar
 in the `routes` directory like so:
 
 ```js title=kit-docs/[slug].meta/+server.js|copy
-import { createMetaRequestHandler } from '@svelteness/kit-docs/node';
+import { createMetaRequestHandler } from '@gdagosto/kit-docs/node';
 
 export const GET = createMetaRequestHandler({
   // map slug to absolute or relative file path to `routes` directory.
@@ -307,7 +307,7 @@ export const GET = createMetaRequestHandler({
 You can transform the meta object before it's returned like so:
 
 ```js title=kit-docs/[slug].meta/+server.js|copy
-import { createMetaRequestHandler } from '@svelteness/kit-docs/node';
+import { createMetaRequestHandler } from '@gdagosto/kit-docs/node';
 
 export const GET = createMetaRequestHandler({
   transform: ({ slug, filePath, meta, html, links }) => {
@@ -329,7 +329,7 @@ export const GET = createMetaRequestHandler({
 You can also return a transformer when resolving a slug like so:
 
 ```js title=kit-docs/[slug].meta/+server.js|copy
-import { createMetaRequestHandler } from '@svelteness/kit-docs/node';
+import { createMetaRequestHandler } from '@gdagosto/kit-docs/node';
 
 export const GET = createMetaRequestHandler({
   resolve: (slug, { resolve }) => {
@@ -349,7 +349,7 @@ export const GET = createMetaRequestHandler({
 You can configure which files are included and excluded like so:
 
 ```js title=kit-docs/[slug].meta/+server.js|copy
-import { createMetaRequestHandler } from '@svelteness/kit-docs/node';
+import { createMetaRequestHandler } from '@gdagosto/kit-docs/node';
 
 export const GET = createMetaRequestHandler({
   // These are Rollup filter patterns.
@@ -377,7 +377,7 @@ You can call the meta request handler and handle the result yourself like so:
 import {
   handleMetaRequest,
   paramToSlug,
-} from '@svelteness/kit-docs/node';
+} from '@gdagosto/kit-docs/node';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export function get({ params }) {
@@ -480,7 +480,7 @@ a deep match means all nested files other than `index.md` will be ignored.
 You can override any of the default resolvers like so:
 
 ```js title=kit-docs/[dir].sidebar/+server.js|copy
-import { createSidebarRequestHandler } from '@svelteness/kit-docs/node';
+import { createSidebarRequestHandler } from '@gdagosto/kit-docs/node';
 
 export const GET = createSidebarRequestHandler({
   // `data` includes file paths, frontmatter, file content and more.
@@ -513,7 +513,7 @@ sidebar_title: Custom Sidebar Title
 You can configure which files are included and excluded like so:
 
 ```js title=kit-docs/[dir].sidebar/+server.js|copy
-import { createSidebarRequestHandler } from '@svelteness/kit-docs/node';
+import { createSidebarRequestHandler } from '@gdagosto/kit-docs/node';
 
 export const GET = createSidebarRequestHandler({
   // These are Rollup filter patterns.
@@ -538,7 +538,7 @@ export type FilterPattern = ReadonlyArray<string | RegExp> | string | RegExp | n
 You can control how the category names are formatted like so:
 
 ```js title=kit-docs/[dir].sidebar+server.js|copy
-import { createSidebarRequestHandler } from '@svelteness/kit-docs/node';
+import { createSidebarRequestHandler } from '@gdagosto/kit-docs/node';
 
 export const GET = createSidebarRequestHandler({
   // Default formatter maps `kebab-case` to `Title Case`.
@@ -554,7 +554,7 @@ You can call the sidebar request handler and handle the result yourself like so:
 import {
   handleSidebarRequest,
   paramToDir,
-} from '@svelteness/kit-docs/node';
+} from '@gdagosto/kit-docs/node';
 
 /** @type {import('@sveltejs/kit').RequestHandler} */
 export function get({ params }) {
@@ -579,7 +579,7 @@ into your application.
 
 ```svelte{4}
 <script context="module">
-  import { createKitDocsLoader } from '@svelteness/kit-docs';
+  import { createKitDocsLoader } from '@gdagosto/kit-docs';
 
   export const load = createKitDocsLoader({ sidebar: '/docs' });
 </script>
@@ -592,7 +592,7 @@ provide either a string as shown above, or a multi-path config like so:
 
 ```svelte
 <script context="module">
-  import { createKitDocsLoader } from '@svelteness/kit-docs';
+  import { createKitDocsLoader } from '@gdagosto/kit-docs';
 
   export const load = createKitDocsLoader({
     sidebar: {
@@ -614,7 +614,7 @@ You can load the data yourself if required like so:
 
 ```svelte title=Page.svelte|copy
 <script context="module">
-  import { loadKitDocsMeta, loadKitDocsSidebar } from '@svelteness/kit-docs';
+  import { loadKitDocsMeta, loadKitDocsSidebar } from '@gdagosto/kit-docs';
 
   /** @type {import('@sveltejs/kit').Load} */
   export async function load({ url, fetch }) {
@@ -655,7 +655,7 @@ You can import the `kitDocs` or `frontmatter` stores for accessing Markdown meta
 
 ```svelte
 <script>
-  import { kitDocs, frontmatter } from '@svelteness/kit-docs';
+  import { kitDocs, frontmatter } from '@gdagosto/kit-docs';
 
   $: console.log($kitDocs.meta);
 

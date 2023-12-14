@@ -1,14 +1,14 @@
 import path from 'path';
 import {
+  getHighlighter,
   type Highlighter,
   type HighlighterOptions,
   type Lang,
-  getHighlighter,
   renderToHtml,
 } from 'shiki';
 import { type Plugin } from 'vite';
 
-const PLUGIN_NAME = '@svelteness/highlight' as const;
+const PLUGIN_NAME = '@gdagosto/highlight' as const;
 
 export type HighlightPluginOptions = HighlighterOptions;
 

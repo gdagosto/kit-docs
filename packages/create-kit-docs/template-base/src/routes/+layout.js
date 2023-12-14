@@ -1,4 +1,4 @@
-import { createKitDocsLoader } from '@svelteness/kit-docs';
+import { createKitDocsLoader } from '@gdagosto/kit-docs';
 
 export const prerender = true;
 

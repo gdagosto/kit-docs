@@ -14,7 +14,7 @@ import { SocialLink } from '$lib';
 </script>
 
 ```js copy
-import { SocialLink } from '@svelteness/kit-docs';
+import { SocialLink } from '@gdagosto/kit-docs';
 ```
 
 ```svelte copy
@@ -34,7 +34,7 @@ import { SocialLink } from '@svelteness/kit-docs';
 ## Tabbed Links
 
 ```js copy
-import { TabbedLinks } from '@svelteness/kit-docs';
+import { TabbedLinks } from '@gdagosto/kit-docs';
 ```
 
 ```svelte copy
@@ -62,7 +62,7 @@ import { Button } from '$lib';
 </script>
 
 ```js copy
-import { Button } from '@svelteness/kit-docs';
+import { Button } from '@gdagosto/kit-docs';
 ```
 
 ### Default
@@ -119,7 +119,7 @@ import { Select } from '$lib';
 
 ```svelte copy
 <script>
-  import { Select } from '@svelteness/kit-docs';
+  import { Select } from '@gdagosto/kit-docs';
 
   let options = ['Option A', 'Option B', 'Option C'];
   let value = options[0];
@@ -139,7 +139,7 @@ import { Chip } from '$lib';
 </script>
 
 ```js copy
-import { Chip } from '@svelteness/kit-docs';
+import { Chip } from '@gdagosto/kit-docs';
 ```
 
 ```svelte copy
@@ -157,7 +157,7 @@ import { ColorSchemeToggle } from '$lib';
 </script>
 
 ```js copy
-import { ColorSchemeToggle } from '@svelteness/kit-docs';
+import { ColorSchemeToggle } from '@gdagosto/kit-docs';
 ```
 
 ```svelte copy
@@ -183,7 +183,7 @@ function onMenuItemSelect(item) {
 
 ```svelte copy
 <script>
-  import { Menu, MenuItem } from '@svelteness/kit-docs';
+  import { Menu, MenuItem } from '@gdagosto/kit-docs';
 
   let menuItems = ['Item 1', 'Item 2', 'Item 3'];
   let currentMenuItem = menuItems[0];
@@ -221,7 +221,7 @@ import { Popover } from '$lib';
 
 ```svelte copy
 <script>
-  import { Popover } from '@svelteness/kit-docs';
+  import { Popover } from '@gdagosto/kit-docs';
 </script>
 
 <Popover overlay>

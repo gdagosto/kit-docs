@@ -21,7 +21,7 @@ layout for you. Feel free to skip to the [next section](#tailwind) if you've alr
 <head>
   <!-- ... -->
   <script>
-    const key = 'svelteness::color-scheme';
+    const key = 'gdagosto::color-scheme';
     const scheme = localStorage[key];
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (scheme === 'dark' || (scheme !== 'light' && prefersDark)) {
@@ -38,7 +38,7 @@ layout for you. Feel free to skip to the [next section](#tailwind) if you've alr
 !!!step title="Copy Font Files"|description="Copy the theme font files to your lib folder."
 
 ```bash copy
-cp -R node_modules/@svelteness/kit-docs/client/fonts src/fonts
+cp -R node_modules/@gdagosto/kit-docs/client/fonts src/fonts
 ```
 
 !!!
@@ -47,11 +47,11 @@ cp -R node_modules/@svelteness/kit-docs/client/fonts src/fonts
 
 ```svelte title=routes/__layout-kit-docs.svelte|copyHighlight{2-6}
 <script>
-  import '@svelteness/kit-docs/client/polyfills/index.js';
-  import '@svelteness/kit-docs/client/styles/normalize.css';
-  import '@svelteness/kit-docs/client/styles/fonts.css';
-  import '@svelteness/kit-docs/client/styles/theme.css';
-  import '@svelteness/kit-docs/client/styles/vars.css';
+  import '@gdagosto/kit-docs/client/polyfills/index.js';
+  import '@gdagosto/kit-docs/client/styles/normalize.css';
+  import '@gdagosto/kit-docs/client/styles/fonts.css';
+  import '@gdagosto/kit-docs/client/styles/theme.css';
+  import '@gdagosto/kit-docs/client/styles/vars.css';
 </script>
 ```
 
@@ -61,11 +61,11 @@ cp -R node_modules/@svelteness/kit-docs/client/fonts src/fonts
 
 ```svelte title=routes/__layout-kit-docs.svelte|copySteps{2,6-9,13-15}
 <script>
-  import { KitDocsLayout } from '@svelteness/kit-docs';
+  import { KitDocsLayout } from '@gdagosto/kit-docs';
 
   // ...
 
-  /** @type {import('@svelteness/kit-docs').NavbarConfig} */
+  /** @type {import('@gdagosto/kit-docs').NavbarConfig} */
   const navbar = {
     links: [{ title: 'Documentation', slug: '/docs', match: /\/docs/ }],
   };
@@ -106,17 +106,17 @@ recommend removing certain CSS files so you don't end up with duplicate utility 
 1. First, remove the following CSS imports from your layout file:
 
 ```diff title=routes/__layout-kit-docs.svelte
-- import '@svelteness/kit-docs/client/styles/normalize.css';
-- import '@svelteness/kit-docs/client/styles/theme.css';
+- import '@gdagosto/kit-docs/client/styles/normalize.css';
+- import '@gdagosto/kit-docs/client/styles/theme.css';
 ```
 
 2. Next, add our client files to your Tailwind `contents` config:
 
 ```js title=tailwind.config.cjs|copyHighlight{2}
 module.exports = {
-  content: ['./src/**/*.{html,svelte}', './node_modules/@svelteness/kit-docs/client/**/*.svelte'],
+  content: ['./src/**/*.{html,svelte}', './node_modules/@gdagosto/kit-docs/client/**/*.svelte'],
 };
 ```
 
-3. Finally, copy over our [Tailwind config](https://github.com/svelteness/kit-docs/blob/main/packages/kit-docs/tailwind.config.cjs)
+3. Finally, copy over our [Tailwind config](https://github.com/gdagosto/kit-docs/blob/main/packages/kit-docs/tailwind.config.cjs)
    file from GitHub and adjust values as desired. Ignore the `corePlugins` and `fontFamily` settings.

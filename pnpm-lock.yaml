@@ -93,6 +93,9 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0
     devDependencies:
+      '@gdagosto/kit-docs':
+        specifier: workspace:*
+        version: link:../packages/kit-docs
       '@iconify-json/ri':
         specifier: ^1.1.12
         version: 1.1.12
@@ -105,9 +108,6 @@ importers:
       '@sveltejs/kit':
         specifier: ^1.25.0
         version: 1.25.0(svelte@4.2.0)(vite@4.4.9)
-      '@svelteness/kit-docs':
-        specifier: workspace:*
-        version: link:../packages/kit-docs
       shiki:
         specifier: ^0.14.4
         version: 0.14.4
@@ -185,6 +185,9 @@ importers:
       '@docsearch/js':
         specifier: ^3.5.2
         version: 3.5.2(@algolia/client-search@4.20.0)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(search-insights@2.8.2)
+      '@gdagosto/kit-docs':
+        specifier: 'link:'
+        version: 'link:'
       '@iconify-json/ri':
         specifier: ^1.1.12
         version: 1.1.12
@@ -206,9 +209,6 @@ importers:
       '@sveltejs/package':
         specifier: ^2.2.2
         version: 2.2.2(svelte@4.2.0)(typescript@5.2.2)
-      '@svelteness/kit-docs':
-        specifier: 'link:'
-        version: 'link:'
       '@tailwindcss/typography':
         specifier: ^0.5.10
         version: 0.5.10(tailwindcss@3.3.3)

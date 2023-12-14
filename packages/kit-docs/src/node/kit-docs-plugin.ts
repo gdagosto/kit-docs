@@ -3,7 +3,7 @@ import { type HighlighterOptions } from 'shiki';
 import { type Plugin } from 'vite';
 
 import { kitDocsHighlightPlugin } from './highlight-plugin';
-import { type MarkdownPluginOptions, kitDocsMarkdownPlugin } from './markdown-plugin';
+import { kitDocsMarkdownPlugin, type MarkdownPluginOptions } from './markdown-plugin';
 
 const __cwd = process.cwd();
 
@@ -22,7 +22,7 @@ export const kitDocsPlugin = (options: KitDocsPluginOptions = {}): Plugin[] =>
 
 function corePlugin(): Plugin {
   return {
-    name: '@svelteness/kit-docs',
+    name: '@gdagosto/kit-docs',
     enforce: 'pre',
     config(config) {
       const userAlias = config.resolve?.alias;
@@ -48,14 +48,14 @@ function corePlugin(): Plugin {
       return {
         optimizeDeps: {
           include: ['shiki'],
-          exclude: ['@svelteness/kit-docs'],
+          exclude: ['@gdagosto/kit-docs'],
         },
         resolve: {
           alias,
         },
         build: {
           rollupOptions: {
-            external: ['@svelteness/kit-docs/node'],
+            external: ['@gdagosto/kit-docs/node'],
           },
         },
       };

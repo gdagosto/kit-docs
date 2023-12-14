@@ -1,5 +1,5 @@
+import kitDocs from '@gdagosto/kit-docs/node';
 import { sveltekit } from '@sveltejs/kit/vite';
-import kitDocs from '@svelteness/kit-docs/node';
 import { resolve } from 'path';
 import icons from 'unplugin-icons/vite';
 

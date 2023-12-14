@@ -1,7 +1,7 @@
 <script>
   import { page } from '$app/stores';
 
-  import { KitDocs, createKitDocsLoader, createSidebarContext } from '@svelteness/kit-docs';
+  import { KitDocs, createKitDocsLoader, createSidebarContext } from '@gdagosto/kit-docs';
 
   /** @type {import('./$types').LayoutData} */
   export let data;

@@ -16,7 +16,7 @@ const config = {
     },
 
     alias: {
-      '@svelteness/kit-docs': './src/lib',
+      '@gdagosto/kit-docs': './src/lib',
     },
   },
 };

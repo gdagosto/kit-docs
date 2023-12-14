@@ -6,7 +6,7 @@ import { mediaQuery } from './media-query.js';
 
 export type ColorScheme = 'light' | 'dark' | 'system';
 
-const LOCAL_STORAGE_KEY = 'svelteness::color-scheme';
+const LOCAL_STORAGE_KEY = 'gdagosto::color-scheme';
 
 const prefersDarkColorScheme = mediaQuery('(prefers-color-scheme: dark)');
 

@@ -1,21 +1,21 @@
 <script>
-  import '@svelteness/kit-docs/client/polyfills/index.js';
-  import '@svelteness/kit-docs/client/styles/normalize.css';
-  import '@svelteness/kit-docs/client/styles/fonts.css';
-  import '@svelteness/kit-docs/client/styles/theme.css';
-  import '@svelteness/kit-docs/client/styles/vars.css';
+  import '@gdagosto/kit-docs/client/polyfills/index.js';
+  import '@gdagosto/kit-docs/client/styles/normalize.css';
+  import '@gdagosto/kit-docs/client/styles/fonts.css';
+  import '@gdagosto/kit-docs/client/styles/theme.css';
+  import '@gdagosto/kit-docs/client/styles/vars.css';
 
   import { page } from '$app/stores';
   import SvelteLogo from '$img/svelte-horizontal.svg?raw';
 
-  import { Button, KitDocs, KitDocsLayout, createSidebarContext } from '@svelteness/kit-docs';
+  import { Button, KitDocs, KitDocsLayout, createSidebarContext } from '@gdagosto/kit-docs';
 
   /** @type {import('./$types').LayoutData} */
   export let data;
 
   $: ({ meta, sidebar } = data);
 
-  /** @type {import('@svelteness/kit-docs').NavbarConfig} */
+  /** @type {import('@gdagosto/kit-docs').NavbarConfig} */
   const navbar = {
     links: [{ title: 'Documentation', slug: '/docs', match: /\/docs/ }],
   };

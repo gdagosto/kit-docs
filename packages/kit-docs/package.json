@@ -1,5 +1,5 @@
 {
-  "name": "@svelteness/kit-docs",
+  "name": "@gdagosto/kit-docs",
   "version": "1.1.5",
   "description": "Documentation integration for SvelteKit.",
   "license": "MIT",
@@ -27,18 +27,19 @@
     "./tailwind.config.cjs": "./tailwind.config.cjs"
   },
   "contributors": [
-    "Rahim Alwer <rahim.alwer@gmail.com>"
+    "Rahim Alwer <rahim.alwer@gmail.com>",
+    "Gabriel d'Agosto <gabriel.dagosto@engenharia.ufjf.br>"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/svelteness/kit-docs.git"
+    "url": "git+https://github.com/gdagosto/kit-docs.git"
   },
   "bugs": {
-    "url": "https://github.com/svelteness/kit-docs/issues"
+    "url": "https://github.com/gdagosto/kit-docs/issues"
   },
   "scripts": {
     "build": "run-s build:node kit:sync build:node:types build:client build:styles",
-    "build:client": "svelte-package -o client && run-s build:client:types clean:client",
+    "build:client": "svelte-package -o client && run-s clean:client",
     "build:client:types": "api-extractor run && rimraf temp client/**/*.d.ts",
     "build:node": "pnpm build:node:ext --entry=src/node/index.ts --outdir=node --platform=node --bundle --requireshim",
     "build:node:ext": "node ../../.scripts/build.js --external=vite,@sveltejs,shiki",

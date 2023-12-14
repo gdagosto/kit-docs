@@ -1,5 +1,5 @@
 {
-  "name": "@svelteness/create-kit-docs",
+  "name": "@gdagosto/create-kit-docs",
   "version": "1.1.5",
   "description": "Quickly scaffold a KitDocs application.",
   "license": "MIT",
@@ -20,14 +20,15 @@
     "./package.json": "./package.json"
   },
   "contributors": [
-    "Rahim Alwer <rahim.alwer@gmail.com>"
+    "Rahim Alwer <rahim.alwer@gmail.com>",
+    "Gabriel d'Agosto <gabriel.dagosto@engenharia.ufjf.br>"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/svelteness/kit-docs.git"
+    "url": "git+https://github.com/gdagosto/kit-docs.git"
   },
   "bugs": {
-    "url": "https://github.com/svelteness/kit-docs/issues"
+    "url": "https://github.com/gdagosto/kit-docs/issues"
   },
   "dependencies": {
     "enquirer": "^2.4.1",

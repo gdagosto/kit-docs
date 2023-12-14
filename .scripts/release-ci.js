@@ -69,6 +69,13 @@ async function main() {
   const { stdout } = await run('git', ['diff'], { stdio: 'pipe' });
   if (stdout) {
     step('Committing changes...');
+
+    await run('git', ['config', 'user.name', 'github-actions[bot]']);
+    await run('git', [
+      'config',
+      'user.email',
+      '41898282+github-actions[bot]@users.noreply.github.com',
+    ]);
     await run('git', ['add', '-A']);
     await run('git', ['commit', '-m', `chore(release): v${targetVersion}`]);
   } else {

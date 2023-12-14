@@ -40,6 +40,20 @@
 
 
 
+# [1.2.0](https://github.com/gdagosto/kit-docs/compare/v1.1.5...v1.2.0) (2023-12-14)
+
+
+### Bug Fixes
+
+* remove annotations from math tag, so it's svelte compatible ([45a371b](https://github.com/gdagosto/kit-docs/commit/45a371b932326c85e1bc95f2e998c8ecd2698b33))
+
+
+### Features
+
+* add KaTeX support ([5d79eb8](https://github.com/gdagosto/kit-docs/commit/5d79eb809503c46ac06974160ada05ae1a7d775a))
+
+
+
 ## [1.1.5](https://github.com/svelteness/kit-docs/compare/v1.1.4...v1.1.5) (2023-09-16)
 
 

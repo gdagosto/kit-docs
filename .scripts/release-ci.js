@@ -3,6 +3,7 @@ import fs from 'fs';
 import minimist from 'minimist';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import kleur from 'kleur';
 
 // @ts-ignore
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -12,6 +13,10 @@ const args = minimist(process.argv.slice(2));
 const packages = fs
   .readdirSync(path.resolve(__dirname, '../packages'))
   .filter((p) => !p.startsWith('.'));
+
+function step(msg) {
+  console.info('\n✨ ' + kleur.cyan(msg) + '\n');
+}
 
 async function run(bin, args, opts = {}) {
   return execa(bin, args, { stdio: 'inherit', ...opts });

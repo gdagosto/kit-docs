@@ -44,7 +44,10 @@ async function publishPackage(pkgName, version) {
   step(`Publishing ${pkgName}...`);
 
   try {
-    await run('pnpm', ['publish'], { cwd: pkgRoot, stdio: 'pipe' });
+    await run('pnpm', ['publish', '--publish-branch', 'standalone'], {
+      cwd: pkgRoot,
+      stdio: 'pipe',
+    });
     console.log(kleur.green(`✅ Successfully published ${pkgName}@${version}`));
   } catch (e) {
     if (/** @type {any} */ (e).stderr.match(/previously published/)) {

@@ -1,4 +1,4 @@
-import { type FilterPattern, createFilter, normalizePath } from '@rollup/pluginutils';
+import { createFilter, type FilterPattern, normalizePath } from '@rollup/pluginutils';
 import { globbySync } from 'globby';
 import { resolve } from 'path';
 import { fileURLToPath } from 'url';
@@ -7,14 +7,15 @@ import { type Plugin } from 'vite';
 import { isLocalEnv } from '../utils/env';
 import { getFileNameFromPath } from '../utils/path';
 import {
-  type MarkdownComponents,
-  type MarkdownParser,
-  type MarkdownParserOptions,
-  type ParseMarkdownOptions,
   AddTopLevelHtmlTags,
   clearMarkdownCaches,
   createMarkdownParser,
   MarkdownComponentContainer,
+  type MarkdownComponents,
+  type MarkdownParser,
+  type MarkdownParserOptions,
+  type MarkdownParserPlugin,
+  type ParseMarkdownOptions,
   parseMarkdownToSvelte,
 } from './parser';
 
@@ -57,7 +58,10 @@ const DEFAULT_INCLUDE_RE = /\+page\.md($|\?)/;
 const DEFAULT_EXCLUDE_RE = null;
 const DEFAULT_GLOBAL_COMPONENTS = 'src/kit-docs/**/[^_]*.svelte';
 
-export function kitDocsMarkdownPlugin(options: MarkdownPluginOptions = {}): Plugin {
+export function kitDocsMarkdownPlugin(
+  options: MarkdownPluginOptions = {},
+  plugins: MarkdownParserPlugin[] = [],
+): Plugin {
   let mode: string;
   let baseUrl: string;
   let parser: MarkdownParser;
@@ -142,10 +146,13 @@ export function kitDocsMarkdownPlugin(options: MarkdownPluginOptions = {}): Plug
       mode = config.mode;
       isBuild = config.command === 'build';
       define = config.define;
-      parser = await createMarkdownParser({
-        ...parserOptions,
-        components,
-      });
+      parser = await createMarkdownParser(
+        {
+          ...parserOptions,
+          components,
+        },
+        plugins,
+      );
     },
     configureServer(server) {
       function restart() {

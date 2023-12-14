@@ -1,4 +1,4 @@
-import MarkdownIt from 'markdown-it';
+import MarkdownIt, { PluginSimple, PluginWithOptions } from 'markdown-it';
 import { type HighlighterOptions } from 'shiki';
 
 import {
@@ -12,9 +12,7 @@ import {
   extractTitlePlugin,
   hoistTagsPlugin,
   importCodePlugin,
-  katexPlugin,
   linksPlugin,
-  removeAnnotationPlugin,
   tocPlugin,
 } from './plugins';
 import type {
@@ -32,8 +30,11 @@ export type MarkdownParserOptions = {
   configureParser?(parser: MarkdownParser): void | Promise<void>;
 };
 
+export type MarkdownParserPlugin = PluginWithOptions | PluginSimple;
+
 export async function createMarkdownParser(
   options: MarkdownParserOptions = {},
+  plugins: MarkdownParserPlugin[] = [],
 ): Promise<MarkdownParser> {
   const { configureParser, shiki = {}, components = [] } = options;
 
@@ -51,21 +52,6 @@ export async function createMarkdownParser(
 
   const parser = MarkdownIt({ html: true });
 
-  // Optional math expressions plugins
-  try {
-    const markdownItTexmath = await import('markdown-it-texmath');
-    const katex = await import('katex');
-
-    try {
-      parser.use(katexPlugin, { plugin: markdownItTexmath, katex });
-      parser.use(removeAnnotationPlugin);
-    } catch (error) {
-      console.error(error);
-    }
-  } catch {
-    console.log('no KaTeX support, failed to import');
-  }
-
   parser.use(emojiPlugin);
   parser.use(anchorPlugin);
   parser.use(tocPlugin);
@@ -78,6 +64,10 @@ export async function createMarkdownParser(
   parser.use(importCodePlugin);
   parser.use(await createShikiPlugin(shiki));
   parser.use(hoistTagsPlugin);
+
+  plugins.forEach((plugin) => {
+    parser.use(plugin);
+  });
 
   responsiveTablePlugin(parser);
 

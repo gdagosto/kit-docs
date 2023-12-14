@@ -4,6 +4,7 @@ import { type Plugin } from 'vite';
 
 import { kitDocsHighlightPlugin } from './highlight-plugin';
 import { kitDocsMarkdownPlugin, type MarkdownPluginOptions } from './markdown-plugin';
+import { type MarkdownParserPlugin } from './markdown-plugin/parser';
 
 const __cwd = process.cwd();
 
@@ -13,11 +14,14 @@ export type KitDocsPluginOptions = {
   markdown?: MarkdownPluginOptions;
 };
 
-export const kitDocsPlugin = (options: KitDocsPluginOptions = {}): Plugin[] =>
+export const kitDocsPlugin = (
+  options: KitDocsPluginOptions = {},
+  plugins: MarkdownParserPlugin[] = [],
+): Plugin[] =>
   [
     corePlugin(),
     options.highlight !== false && kitDocsHighlightPlugin(options.shiki),
-    kitDocsMarkdownPlugin({ ...options.markdown, shiki: options.shiki }),
+    kitDocsMarkdownPlugin({ ...options.markdown, shiki: options.shiki }, plugins),
   ].filter(Boolean) as Plugin[];
 
 function corePlugin(): Plugin {

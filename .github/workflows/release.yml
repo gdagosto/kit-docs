@@ -1,4 +1,4 @@
-name: "release [NOT FUNCTIONAL]"
+name: "release"
 
 on: [workflow_dispatch]
 

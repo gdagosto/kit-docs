@@ -17,7 +17,8 @@
     "demo:build": "pnpm -F demo build",
     "demo:preview": "pnpm -F demo preview",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "release": "pnpm clean && pnpm build && node .scripts/release.js"
+    "release": "pnpm clean && pnpm build && node .scripts/release.js",
+    "release-ci": "pnpm clean && pnpm build && node .scripts/release-ci.js"
   },
   "devDependencies": {
     "@types/node": "^20.6.0",

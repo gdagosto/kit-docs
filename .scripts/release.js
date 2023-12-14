@@ -20,9 +20,11 @@ const currentVersion = require('../package.json').version;
 
 if (isDryRun) console.log(kleur.cyan('\n☂️  Running in dry mode...\n'));
 
-const packages = fs
-  .readdirSync(path.resolve(__dirname, '../packages'))
-  .filter((p) => !p.startsWith('.'));
+// const packages = fs
+//   .readdirSync(path.resolve(__dirname, '../packages'))
+//   .filter((p) => !p.startsWith('.'));
+
+const packages = ['kit-docs'];
 
 const preId =
   args.preid || (semver.prerelease(currentVersion) && semver.prerelease(currentVersion)[0]);

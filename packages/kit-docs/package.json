@@ -1,6 +1,6 @@
 {
   "name": "@gdagosto/kit-docs",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "Documentation integration for SvelteKit.",
   "license": "MIT",
   "type": "module",

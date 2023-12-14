@@ -26,6 +26,13 @@ jobs:
       - name: 📥 Monorepo install
         uses: ./.github/actions/pnpm-nm-install
 
-      - run: pnpm run release
+      - name: Get Next Version
+        id: semver
+        uses: ietf-tools/semver-action@v1
+        with:
+          token: ${{ github.token }}
+          branch: standalone
+
+      - run: pnpm run release ${{ steps.semver.outputs.nextStrict }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

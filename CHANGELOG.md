@@ -1,3 +1,12 @@
+# 1.4.0 (2023-12-15)
+
+
+### Features
+
+* change plugins input interface ([983c929](https://github.com/gdagosto/kit-docs/commit/983c929e4cc89014be5ef631f58c7a1fdb480388))
+
+
+
 # 1.3.0 (2023-12-15)
 
 

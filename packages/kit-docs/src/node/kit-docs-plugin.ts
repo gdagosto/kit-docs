@@ -14,14 +14,11 @@ export type KitDocsPluginOptions = {
   markdown?: MarkdownPluginOptions;
 };
 
-export const kitDocsPlugin = (
-  options: KitDocsPluginOptions = {},
-  plugins: MarkdownParserPlugin[] = [],
-): Plugin[] =>
+export const kitDocsPlugin = (options: KitDocsPluginOptions = {}): Plugin[] =>
   [
     corePlugin(),
     options.highlight !== false && kitDocsHighlightPlugin(options.shiki),
-    kitDocsMarkdownPlugin({ ...options.markdown, shiki: options.shiki }, plugins),
+    kitDocsMarkdownPlugin({ ...options.markdown, shiki: options.shiki }),
   ].filter(Boolean) as Plugin[];
 
 function corePlugin(): Plugin {

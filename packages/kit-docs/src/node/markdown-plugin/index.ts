@@ -52,16 +52,19 @@ export type MarkdownPluginOptions = MarkdownParserOptions & {
    * @defaultValue `null`
    */
   topLevelHtmlTags?: AddTopLevelHtmlTags;
+  /**
+   * Add extra plugins to be parsed
+   *
+   * @defaultValue `[]`
+   */
+  plugins?: MarkdownParserPlugin[];
 };
 
 const DEFAULT_INCLUDE_RE = /\+page\.md($|\?)/;
 const DEFAULT_EXCLUDE_RE = null;
 const DEFAULT_GLOBAL_COMPONENTS = 'src/kit-docs/**/[^_]*.svelte';
 
-export function kitDocsMarkdownPlugin(
-  options: MarkdownPluginOptions = {},
-  plugins: MarkdownParserPlugin[] = [],
-): Plugin {
+export function kitDocsMarkdownPlugin(options: MarkdownPluginOptions = {}): Plugin {
   let mode: string;
   let baseUrl: string;
   let parser: MarkdownParser;
@@ -146,13 +149,10 @@ export function kitDocsMarkdownPlugin(
       mode = config.mode;
       isBuild = config.command === 'build';
       define = config.define;
-      parser = await createMarkdownParser(
-        {
-          ...parserOptions,
-          components,
-        },
-        plugins,
-      );
+      parser = await createMarkdownParser({
+        ...parserOptions,
+        components,
+      });
     },
     configureServer(server) {
       function restart() {

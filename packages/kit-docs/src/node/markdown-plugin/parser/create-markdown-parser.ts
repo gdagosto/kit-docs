@@ -27,6 +27,7 @@ import type {
 export type MarkdownParserOptions = {
   components?: MarkdownComponents;
   shiki?: HighlighterOptions;
+  plugins?: MarkdownParserPlugin[];
   configureParser?(parser: MarkdownParser): void | Promise<void>;
 };
 
@@ -34,9 +35,8 @@ export type MarkdownParserPlugin = PluginWithOptions | PluginSimple;
 
 export async function createMarkdownParser(
   options: MarkdownParserOptions = {},
-  plugins: MarkdownParserPlugin[] = [],
 ): Promise<MarkdownParser> {
-  const { configureParser, shiki = {}, components = [] } = options;
+  const { configureParser, shiki = {}, components = [], plugins = [] } = options;
 
   const inlineComponents = components.filter(
     ({ type }) => type === 'inline',

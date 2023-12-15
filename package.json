@@ -58,5 +58,8 @@
   },
   "volta": {
     "node": "14.19.0"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
